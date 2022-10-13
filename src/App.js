@@ -1,24 +1,35 @@
 import './App.css';
-import MisComponentes from './components/MisComponentes';
+//import MisComponentes from './components/MisComponentes';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './components/CartWidget.css'
-import ItemListContainer from './components/ItemListContainer';
+import './components/CartWidget/CartWidget.css'
+//import MapComponent from './components/MapComponents';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import CartWidget from './components/CartWidget/CartWidget';
+import Checkout from './components/Checkout';
+import ItemListContainer from './components/ItemList/ItemListContainer';
+//import { Form } from 'react-bootstrap';
 
 
 
 
-function App() {
-  console.log("hola mundo");
-  
+function App() {  
   return (
     <>
-    <NavBar/>
-    <ItemListContainer greeting={'Bienvenido socio' }/>
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path='/category/:categoryName' element={<ItemListContainer greeting={'Bienvenido socio' } />}/>
+        <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/Cart' element={<CartWidget/>}/>
+        <Route path='/Checkout' element={<Checkout/>}/>
 
-    <MisComponentes name="propiedades" value={100}/>
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }
+
 
 export default App;
