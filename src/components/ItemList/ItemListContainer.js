@@ -1,38 +1,34 @@
 import './ItemListContainer.css';
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-import { getProducts } from '../utils/products';
+import { useParams } from 'react-router-dom';
+import { getAllProducts, getProductsByCategory } from '../../utils/products';
+//import { getAllProducts, getProductsByCategory } from './utils/products.js';
 
- 
+const ItemListContainer = ({ greeting }) => {
+  const { categoryId } = useParams();
+  const [products, setProducts] = useState([]);
 
-//ejemplo de hook
-const ItemListContainer =({ greeting }) => {
+  useEffect(() => {
+    if (categoryId) {
+      getProductsByCategory(categoryId)
+        .then((data) => setProducts(data))
+        .catch((error) => console.warn(error))
+    } else {
+      getAllProducts()
+        .then((data) => setProducts(data))
+        .catch((error) => console.warn(error))
+    }
+  }, [categoryId])
 
-
-    const{ categoryName } = useParams();
-    const [products, setProducts] = useState([]);   
-  
-    useEffect(() => {
-        console.log(categoryName);
-    }, [categoryName])
-  
-    useEffect (() => {
-        getProducts()
-            .then((data) => setProducts(data))
-            .catch((error) => console.warn(error))
-    }, [])
-
-
-    return (
-        <>
-        <Container>
-            <h3 className='greeting'>{greeting}</h3>
-            <ItemList products={products} />
-        </Container>
-        </>
-    );
+  return (
+    <Container>
+      <h1>Catalogo de noviembre</h1>
+      <h3 className="greeting">{greeting}</h3>
+      <ItemList products={products} />
+    </Container>
+  );
 }
-
+ 
 export default ItemListContainer;
