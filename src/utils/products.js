@@ -61,8 +61,8 @@ export const getProductsByCategory = (categoryId) => {
 };
 
 const products = [
-  { title:'Iphone 13', category: 'Nuevo', description:'string', price: 1500, pictureUrl: 'https://www.techmoblog.com/uploads/content_images/202106/img_1624419297_57595094d21c.jpg', stock: 10},
-  { title:'Iphone 12', category: 'Usado', description:'string', price: 1100, pictureUrl: 'https://www.maclife.de/media/maclife/styles/tec_frontend_opengraph/public/images/editors/2020_42/image-117820--4581042.png?itok=4EJXHmhH', stock: 10},
+  { title:'Iphone 14', category: 'Nuevo', description:'TPM', price: 1600, pictureUrl: 'https://www.techmoblog.com/uploads/content_images/202106/img_1624419297_57595094d21c.jpg', stock: 10},
+  {  title:'Iphone 12', category: 'Usado', description:'string', price: 1100, pictureUrl: 'https://www.maclife.de/media/maclife/styles/tec_frontend_opengraph/public/images/editors/2020_42/image-117820--4581042.png?itok=4EJXHmhH', stock: 10},
   { title:'Iphone 11', category: 'Nuevo', description:'string', price: 950, pictureUrl: 'https://www.bug.hr/img/iphone-11-je-najprodavaniji-mobitel-u-prvoj-polovini-2020_U6B_TK.jpg', stock: 10}
 ]
 
@@ -75,7 +75,7 @@ export const createAllProducts = async () => {
     const collectionReference = collection(database, 'items');
     for(let i = 0; i < products.length; i++) {
       console.log(products[i])     
-    //const{} snapshot = await addDoc(collectionReference, products[i]);
+    const snapshot = await addDoc(collectionReference, products[i]);
     }
   } catch (error) {
     console.warn(error)

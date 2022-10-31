@@ -8,9 +8,9 @@ import { createOrder } from "../../utils/orders";
 import OrderModal from "../OrderModal/OrderModal";
 
 const buyerMock = {
-  name: 'coderhouse',
-  phone: '1122334455',
-  email: 'coderhouse@mail.com'
+  name: 'tobias',
+  phone: '3517066567',
+  email: 'tobiascontrera10@gmail.com'
 }
 
 const Cart = () => {
@@ -33,6 +33,9 @@ const Cart = () => {
       items: cart,
       total
     };
+    console.log(newOrder);
+    createOrder(newOrder);
+    
     const newOrderId = await createOrder(newOrder);
     setOrderId(newOrderId);
     clear();

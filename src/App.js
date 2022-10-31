@@ -10,8 +10,13 @@ import { CartProvider } from './contexts/CartContext';
 //import { useEffect } from 'react';
 //import { collection, doc, getDoc, getDocs, getFirestore } from 'firebase/firestore';
 import './components/CartWidget/CartWidget.css';
+//import { useEffect } from 'react';
+//import { createAllProducts } from './utils/products';
 
 function App() {
+//  useEffect(() => {
+//    createAllProducts()
+//    }, []);
 
 
     return (
