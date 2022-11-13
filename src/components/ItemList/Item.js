@@ -2,7 +2,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
+import './Item.js';
 const Item = ({ product }) => {
   return (
     <Card style={{ width: '18rem' }}>
@@ -17,7 +17,7 @@ const Item = ({ product }) => {
         </Card.Text>
           <Link to={`/item/${product.id}`}>
             <Button variant="primary">
-              Ver detalle
+              + Informacion
             </Button>
           </Link>
       </Card.Body>

@@ -13,8 +13,10 @@ const NavBar = () => {
           <Nav.Link as={Link} to='/'>
               Home
           </Nav.Link>
-          <Nav.Link as={Link} to='/category/usados'>Usados</Nav.Link>
-          <Nav.Link as={Link} to='/category/nuevos'>Nuevos</Nav.Link>
+          <Nav.Link as={Link} to='/category/Usado'></Nav.Link>
+          <Nav.Link as={Link} to='/category/Nuevo'>
+            
+          </Nav.Link>
         </Nav>
         <CartWidget />
       </Container>
